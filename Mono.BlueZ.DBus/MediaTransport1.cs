@@ -5,25 +5,25 @@ using DBus;
 namespace Mono.BlueZ.DBus
 {
     // on /org/bluez/hciX
-    [Interface("org.bluez.MediaEndpoint1")]
-    public interface MediaEndpoint1
+    [Interface("org.bluez.MediaTransport1")]
+    public interface MediaTransport1
     {
         FileDescriptor Acquire();
 		FileDescriptor TryAcquire();
         void Release();
-        readonly ObjectPath Device;
-        readonly string UUID;
-		readonly byte Codec ;
-        readonly byte[] Configuration;
-        readonly State State;
+        ObjectPath Device {get;}
+        string UUID {get;}
+	    byte Codec {get;}
+        byte[] Configuration {get;}
+        State State {get;}
         ushort Delay {get;set;}
         ushort Volume {get;set;}
     }
 
     public enum State
     {
-        Idle = "idle",
-        Pending = "pending",
-        Active = "active"
+        Idle,
+        Pending,
+        Active
     }
 }
