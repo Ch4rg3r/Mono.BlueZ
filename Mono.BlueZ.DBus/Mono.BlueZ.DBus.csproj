@@ -31,6 +31,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="A2DP.cs" />
     <Compile Include="MediaEndpoint1.cs" />
     <Compile Include="MediaTransport1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
