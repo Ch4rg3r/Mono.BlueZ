@@ -6,7 +6,7 @@ using Mono.BlueZ.DBus;
 namespace Mono.BlueZ
 {
     //https://git.kernel.org/cgit/bluetooth/bluez.git/tree/test/bluezutils.py
-    public static class BlueZtils//TODO Address pattern 
+    public static class BlueZUtils//TODO Address pattern 
     {
         private const string ServiceName = "org.bluez";
 
@@ -17,12 +17,12 @@ namespace Mono.BlueZ
             return manager.GetManagedObjects();
         }
 
-        public static Adapter1 find_adapter()
+        public static KeyValuePair<ObjectPath, Adapter1> find_adapter()
         {
             return find_adapter_in_objects(get_managed_objects());
         }
 
-        public static Adapter1 find_adapter_in_objects(IDictionary<ObjectPath, IDictionary<string, IDictionary<string, object>>> managedObjects)
+        public static KeyValuePair<ObjectPath, Adapter1> find_adapter_in_objects(IDictionary<ObjectPath, IDictionary<string, IDictionary<string, object>>> managedObjects)
         {
             var bus = Bus.System;
             ObjectPath adapterPath = null;
@@ -37,15 +37,15 @@ namespace Mono.BlueZ
 
             var adapter = bus.GetObject<Adapter1>(ServiceName, adapterPath);
 
-            return adapter;
+            return new KeyValuePair<ObjectPath, Adapter1>(adapterPath, adapter);
         }
 
-        public static Device1 find_device(string device_address)
+        public static KeyValuePair<ObjectPath, Device1>  find_device(string device_address)
         {
             return find_device_in_objects(get_managed_objects(), device_address);
         }
 
-        public static Device1 find_device_in_objects(IDictionary<ObjectPath, IDictionary<string, IDictionary<string, object>>> managedObjects, string device_adress)
+        public static KeyValuePair<ObjectPath, Device1> find_device_in_objects(IDictionary<ObjectPath, IDictionary<string, IDictionary<string, object>>> managedObjects, string device_adress)
         {
             var bus = Bus.System;
             ObjectPath devicePath = null;
@@ -60,7 +60,7 @@ namespace Mono.BlueZ
 
             var device = bus.GetObject<Device1>(ServiceName, devicePath);
 
-            return device;
+            return new KeyValuePair<ObjectPath, Device1>(devicePath, device);
         }
     }
 }
