@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using DBus;
 using Mono.BlueZ.DBus;
 
-namespace Mono.Bluez
+namespace Mono.BlueZ
 {
     //https://git.kernel.org/cgit/bluetooth/bluez.git/tree/test/bluezutils.py
-    public static class BluezUtils//TODO Address pattern 
+    public static class BlueZtils//TODO Address pattern 
     {
         private const string ServiceName = "org.bluez";
 
