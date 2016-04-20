@@ -15,15 +15,12 @@ namespace Mono.BlueZ.DBus
         string UUID {get;}
 	    byte Codec {get;}
         byte[] Configuration {get;}
-        State State {get;}
+        string State {get;}
         ushort Delay {get;set;}
         ushort Volume {get;set;}
     }
 
-    public enum State
+    public static class State
     {
-        Idle,
-        Pending,
-        Active
     }
 }
