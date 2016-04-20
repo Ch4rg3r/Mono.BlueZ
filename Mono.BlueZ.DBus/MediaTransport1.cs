@@ -9,7 +9,9 @@ namespace Mono.BlueZ.DBus
     public interface MediaTransport1
     {
         FileDescriptor Acquire();
-		FileDescriptor TryAcquire();
+        //TODO fd, uint16, uint16 Acquire() "Acquire transport file descriptor and the MTU for readand write respectively."
+        FileDescriptor TryAcquire();
+        //TODO fd, uint16, uint16 TryAcquire() 
         void Release();
         ObjectPath Device {get;}
         string UUID {get;}
@@ -22,5 +24,8 @@ namespace Mono.BlueZ.DBus
 
     public static class State
     {
+        public const string Idle = "idle";
+        public const string Pending = "pending";
+        public const string Active = "active";
     }
 }
