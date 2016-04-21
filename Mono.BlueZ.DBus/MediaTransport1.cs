@@ -22,7 +22,7 @@ namespace Mono.BlueZ.DBus
         ushort Volume {get;set;}
     }
 
-    public static class State
+    public static class TransportState
     {
         public const string Idle = "idle";
         public const string Pending = "pending";
